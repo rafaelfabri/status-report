@@ -215,25 +215,25 @@
         <header>
             <h1>Status Report — Engenharia de Dados</h1>
             <div class="subtitle">Rafael Fabri Chimidt & Gustavo Fogolin · Squad Relatórios (Plurall)</div>
-            <div class="period">Período: 14/ago — 28/ago/2026 · Gerado em 28/08/2026</div>
+            <div class="period">Período: 18/ago — 01/set/2026 · Gerado em 01/09/2026</div>
         </header>
 
         <!-- Summary -->
         <div class="summary-grid">
             <div class="summary-card done">
-                <div class="number">3</div>
+                <div class="number">6</div>
                 <div class="label">Concluídas (novidade)</div>
             </div>
             <div class="summary-card progress">
-                <div class="number">8</div>
+                <div class="number">7</div>
                 <div class="label">Em Andamento</div>
             </div>
             <div class="summary-card backlog">
-                <div class="number">11</div>
+                <div class="number">8</div>
                 <div class="label">Backlog / Aguardando</div>
             </div>
             <div class="summary-card initiatives">
-                <div class="number">4</div>
+                <div class="number">3</div>
                 <div class="label">Iniciativas Ativas</div>
             </div>
         </div>
@@ -246,8 +246,8 @@
             <div class="initiative-card">
                 <h3>🧠 Inteligência Acadêmica — Relatório Diagnóstico do Aluno</h3>
                 <p><strong>O que é:</strong> Novo fluxo da IA para gerar relatório diagnóstico individual do aluno baseado em uma avaliação específica.</p>
-                <p><strong>Papel Dados:</strong> Análise concluída (REL-3814). Agora estamos implementando as queries derivadas: Visão Geral, Desempenho Geral, Questões por Aluno, Habilidades e Temas por Desempenho.</p>
-                <p><strong>Status:</strong> REL-3814 (análise) concluída ✅. 5 subtasks de implementação em andamento (REL-3839 a REL-3843).</p>
+                <p><strong>Papel Dados:</strong> Análise concluída e todas as 5 queries implementadas e entregues. Iniciativa finalizada no lado de Dados.</p>
+                <p><strong>Status:</strong> REL-3814 (análise) ✅, REL-3839 a REL-3843 (5 queries) TODAS concluídas ✅, REL-3794 (job CADUNI) concluída ✅. Iniciativa entregue no lado de Dados.</p>
                 <div class="context">
                     <strong>Complexidade técnica:</strong> Alta. A análise resultou em 5 queries distintas que cruzam dados de desempenho por questão/habilidade/tema para um aluno vs turma, usando dados Meritt + disciplinas + competências do ClickHouse. Execução em paralelo.
                 </div>
@@ -256,8 +256,8 @@
             <div class="initiative-card">
                 <h3>🏫 Painel Sala de Aula — disciplineId CADUNI (IN194)</h3>
                 <p><strong>O que é:</strong> O Painel Sala de Aula precisa unificar dados de EO, Maestro e Avaliações usando um ID de disciplina central (Caduni). Cada produto usa IDs diferentes com relações N:N.</p>
-                <p><strong>Papel Dados:</strong> REL-3794 — arrumar o job para deixar organizado para MR. Depois será aberta outra história para subir em produção (pendências de devops + task anterior).</p>
-                <p><strong>Status:</strong> REL-3819 (nova query) concluída. REL-3794 (novo job) em andamento — organizando para MR.</p>
+                <p><strong>Papel Dados:</strong> REL-3794 concluída — job student_diagnostics_by_discipline merged. REL-3819 (query) já concluída anteriormente.</p>
+                <p><strong>Status:</strong> REL-3794 concluída ✅ (job student_diagnostics_by_discipline merged). REL-3819 (query) já concluída anteriormente.</p>
                 <div class="context">
                     <strong>Complexidade técnica:</strong> Muito Alta. Problema de modelagem com 3 tabelas de de-para em cadeia, relação N:N entre 800k+ registros, e trade-off entre perder dados ou gerar duplicação. Job pronto, faltam ajustes finais para MR + dependências externas para deploy.
                 </div>
@@ -273,20 +273,12 @@
                 </div>
             </div>
 
-            <div class="initiative-card">
-                <h3>🐛 Bugs EO — Acompanhamento de Listas por Alunos</h3>
-                <p><strong>O que é:</strong> Série de bugs relacionados à tabela de Acompanhamento de listas por alunos: dados não atualizam, regras de status incorretas, questões de vídeo aparecendo indevidamente.</p>
-                <p><strong>Papel Dados:</strong> Investigação de regras de negócio, correção de queries e jobs PySpark.</p>
-                <p><strong>Status:</strong> REL-3731 em QA. REL-3763 em Preparing Tests. REL-3727 (questão de vídeo, GF) em QA. REL-3836 concluída ✅ (mudança em get-participants-query).</p>
-                <div class="context">
-                    <strong>Complexidade técnica:</strong> Alta. Envolve compreender regras de negócio complexas do EO (status de tarefas, questões anuladas, questões de vídeo), cruzar múltiplas tabelas CDC, e garantir retrocompatibilidade com painéis existentes.
-                </div>
-            </div>
+
         </section>
 
         <!-- Seção 4: Concluído NOVO -->
         <section>
-            <h2><span class="icon">🆕</span> Concluído desde último report (25/ago)</h2>
+            <h2><span class="icon">🆕</span> Concluído desde último report (28/ago)</h2>
             <p class="section-desc">Issues que mudaram para Done desde o último envio. <span class="badge badge-new">NOVO</span></p>
 
             <table class="task-table">
@@ -302,28 +294,52 @@
                 </thead>
                 <tbody>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3838" target="_blank">REL-3838</a></td>
-                        <td>Dados null no endpoint /assessment/students/performance-and-participation (UDA)</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3794" target="_blank">REL-3794</a></td>
+                        <td>Novo job student_diagnostics_by_discipline com disciplineId CADUNI</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">UDA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>27/ago</td>
+                        <td><span class="tag">Sala de Aula</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
                     </tr>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3836" target="_blank">REL-3836</a></td>
-                        <td>Mudança em guided-study/queries/details/get-participants-query.ts</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">EO</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>27/ago</td>
-                    </tr>
-                    <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3814" target="_blank">REL-3814</a></td>
-                        <td>Análise Disponibilização das queries do relatório diagnóstico do aluno - 1 avaliação</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3843" target="_blank">REL-3843</a></td>
+                        <td>Disponibilização da query - Seção Temas por Desempenho (aluno vs turma)</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">IA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
-                        <td>27/ago</td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3842" target="_blank">REL-3842</a></td>
+                        <td>Disponibilização da query - Seção Habilidades (aluno vs turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3841" target="_blank">REL-3841</a></td>
+                        <td>Disponibilização da query - Seção Questões por Aluno</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3840" target="_blank">REL-3840</a></td>
+                        <td>Disponibilização da query - Seção Desempenho Geral (aluno vs turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3839" target="_blank">REL-3839</a></td>
+                        <td>Disponibilização da query - Seção Visão Geral</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>31/ago</td>
                     </tr>
                 </tbody>
             </table>
@@ -346,52 +362,28 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3843" target="_blank">REL-3843</a></td>
-                        <td>Disponibilização da query - Seção Temas por Desempenho (aluno vs turma)</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3797" target="_blank">REL-3797</a></td>
+                        <td>Query Comparar com "dados ENEM" — Média escola</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
                         <td><span class="badge badge-progress">In Progress</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3842" target="_blank">REL-3842</a></td>
-                        <td>Disponibilização da query - Seção Habilidades (aluno vs turma)</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3766" target="_blank">REL-3766</a></td>
+                        <td>Dados de participação da aluna incorretos</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
+                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><span class="badge badge-progress">Code Review</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3841" target="_blank">REL-3841</a></td>
-                        <td>Disponibilização da query - Seção Questões por Aluno</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3720" target="_blank">REL-3720</a></td>
+                        <td>Teste de carga para dimensionamento do banco Postgres</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
+                        <td><span class="tag">Infra</span></td>
+                        <td><span class="badge badge-progress">Code Review</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3840" target="_blank">REL-3840</a></td>
-                        <td>Disponibilização da query - Seção Desempenho Geral (aluno vs turma)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3839" target="_blank">REL-3839</a></td>
-                        <td>Disponibilização da query - Seção Visão Geral</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3794" target="_blank">REL-3794</a></td>
-                        <td>Novo job student_diagnostics_by_discipline com disciplineId CADUNI</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Sala de Aula</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3763" target="_blank">REL-3763</a></td>
@@ -402,19 +394,11 @@
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3731" target="_blank">REL-3731</a></td>
-                        <td>Problema na tabela de Acompanhamento por listas (Back/QA)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">EO Bug</span></td>
-                        <td><span class="badge badge-progress">QA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3723" target="_blank">REL-3723</a></td>
                         <td>Inclusão do tipo de tarefa "trilhas do RAPP" no EO</td>
                         <td><span class="badge badge-gf">GF</span></td>
                         <td><span class="tag">EO</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
+                        <td><span class="badge badge-progress">Ready to QA</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
@@ -424,6 +408,14 @@
                         <td><span class="tag">EO Bug</span></td>
                         <td><span class="badge badge-progress">QA</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3731" target="_blank">REL-3731</a></td>
+                        <td>Problema na tabela de Acompanhamento por listas (Back/QA)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">EO Bug</span></td>
+                        <td><span class="badge badge-progress">Ready to Merge</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
                     </tr>
                 </tbody>
             </table>
@@ -462,18 +454,10 @@
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3797" target="_blank">REL-3797</a></td>
-                        <td>Query Comparar com "dados ENEM" — Média escola</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Painel Escola</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3766" target="_blank">REL-3766</a></td>
-                        <td>Dados de participação da aluna incorretos</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3800" target="_blank">REL-3800</a></td>
+                        <td>Disponibilizar Query para o "Meu Progresso"</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">Progresso</span></td>
                         <td><span class="badge badge-backlog">Médio</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
@@ -482,6 +466,14 @@
                         <td>Problema do dado de Listas enviadas (acompanhamento por professores)</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">Maestro Bug</span></td>
+                        <td><span class="badge badge-backlog">Médio</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3686" target="_blank">REL-3686</a></td>
+                        <td>Sem data de entrega da avaliação (Painel Aluno)</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">Painel Aluno</span></td>
                         <td><span class="badge badge-backlog">Médio</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
@@ -509,30 +501,6 @@
                         <td><span class="badge badge-backlog">Médio</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3800" target="_blank">REL-3800</a></td>
-                        <td>Disponibilizar Query para o "Meu Progresso"</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Progresso</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3720" target="_blank">REL-3720</a></td>
-                        <td>Teste de carga para dimensionamento do banco Postgres</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Infra</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3686" target="_blank">REL-3686</a></td>
-                        <td>Sem data de entrega da avaliação (Painel Aluno)</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Painel Aluno</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -540,7 +508,7 @@
         <!-- Seção 7: Já Reportado -->
         <section>
             <h2><span class="icon">✅</span> Já reportado como concluído (report anterior)</h2>
-            <p class="section-desc">Issues concluídas entre 14/ago e 25/ago que já foram informadas no report anterior.</p>
+            <p class="section-desc">Issues concluídas entre 18/ago e 28/ago que já foram informadas no report anterior.</p>
 
             <table class="task-table">
                 <thead>
@@ -558,20 +526,41 @@
                         <td>Atualizar dependências de notificacoes-relatorios</td>
                         <td><span class="badge badge-gf">GF</span></td>
                         <td><span class="tag">Infra</span></td>
-                        <td>25/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3789" target="_blank">REL-3789</a></td>
-                        <td>Validar e ajustar a origem dos dados da média de acertos da escola (ENEM)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">ENEM</span></td>
-                        <td>24/ago</td>
+                        <td>28/ago</td>
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3808" target="_blank">REL-3808</a></td>
                         <td>Tabela Acompanhamento de listas por alunos — correção da regra em status</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">EO Bug</span></td>
+                        <td>28/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3836" target="_blank">REL-3836</a></td>
+                        <td>Mudança em guided-study/queries/details/get-participants-query.ts</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">EO</span></td>
+                        <td>28/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3814" target="_blank">REL-3814</a></td>
+                        <td>Análise Disponibilização das queries do relatório diagnóstico do aluno</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>28/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3838" target="_blank">REL-3838</a></td>
+                        <td>Dados null no endpoint /assessment/students/performance-and-participation (UDA)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">UDA</span></td>
+                        <td>27/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3789" target="_blank">REL-3789</a></td>
+                        <td>Validar e ajustar a origem dos dados da média de acertos da escola (ENEM)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">ENEM</span></td>
                         <td>24/ago</td>
                     </tr>
                     <tr class="reported-muted">
@@ -589,6 +578,13 @@
                         <td>24/ago</td>
                     </tr>
                     <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3786" target="_blank">REL-3786</a></td>
+                        <td>Replicar o ajuste em nome das listas no EO</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">EO</span></td>
+                        <td>21/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3549" target="_blank">REL-3549</a></td>
                         <td>Retornar parâmetro indicando escola do usuário logado (ENEM)</td>
                         <td><span class="badge badge-rf">RF</span></td>
@@ -596,11 +592,11 @@
                         <td>21/ago</td>
                     </tr>
                     <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3786" target="_blank">REL-3786</a></td>
-                        <td>Replicar o ajuste em nome das listas no EO</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3722" target="_blank">REL-3722</a></td>
+                        <td>Consulta acompanhamento por Rede para Rede Santa Catarina</td>
                         <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">EO</span></td>
-                        <td>21/ago</td>
+                        <td><span class="tag">Rede SC</span></td>
+                        <td>19/ago</td>
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3793" target="_blank">REL-3793</a></td>
@@ -618,21 +614,21 @@
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3732" target="_blank">REL-3732</a></td>
-                        <td>Query ClickHouse instrument-types — buscar tipos de instrumento disponíveis</td>
+                        <td>Query ClickHouse para instrument-types — buscar tipos de instrumento</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">IA</span></td>
                         <td>19/ago</td>
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3733" target="_blank">REL-3733</a></td>
-                        <td>Query ClickHouse students — listar alunos da turma</td>
+                        <td>Query ClickHouse para students — listar alunos da turma</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">IA</span></td>
                         <td>19/ago</td>
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3734" target="_blank">REL-3734</a></td>
-                        <td>Query ClickHouse lists — listar listas/atividades EO por instrumentTypeId + disciplineId</td>
+                        <td>Query ClickHouse para lists — listar listas/atividades EO por instrumentTypeId + disciplineId</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">IA</span></td>
                         <td>19/ago</td>
@@ -644,20 +640,6 @@
                         <td><span class="tag">IA</span></td>
                         <td>19/ago</td>
                     </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3722" target="_blank">REL-3722</a></td>
-                        <td>Consulta acompanhamento por Rede para Rede Santa Catarina</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Rede SC</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3629" target="_blank">REL-3629</a></td>
-                        <td>Disponibilizar queries para novos combos da Inteligência Acadêmica V2</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA V2</span></td>
-                        <td>17/ago</td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -666,7 +648,7 @@
         <section>
             <h2><span class="icon">📦</span> Histórico</h2>
             <details>
-                <summary>Concluídos antes de 14/ago/2026 — clique para expandir (28 issues)</summary>
+                <summary>Concluídos antes de 18/ago/2026 — clique para expandir (29 issues)</summary>
                 <table class="task-table" style="margin-top: 1rem;">
                     <thead>
                         <tr>
@@ -677,6 +659,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3629" target="_blank">REL-3629</a></td>
+                            <td>Disponibilizar queries para novos combos da IA V2</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td>17/ago</td>
+                        </tr>
                         <tr>
                             <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3765" target="_blank">REL-3765</a></td>
                             <td>Ajuste status questão anulada para "Realizada"</td>
@@ -851,7 +839,7 @@
         </section>
 
         <footer>
-            <p>Gerado automaticamente em 28/08/2026 · Squad Relatórios · Plurall Data Engineering</p>
+            <p>Gerado automaticamente em 01/09/2026 · Squad Relatórios · Plurall Data Engineering</p>
         </footer>
     </div>
 </body>
