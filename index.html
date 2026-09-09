@@ -215,21 +215,21 @@
         <header>
             <h1>Status Report — Engenharia de Dados</h1>
             <div class="subtitle">Rafael Fabri Chimidt & Gustavo Fogolin · Squad Relatórios (Plurall)</div>
-            <div class="period">Período: 18/ago — 01/set/2026 · Gerado em 01/09/2026</div>
+            <div class="period">Período: 26/ago — 09/set/2026 · Gerado em 09/09/2026</div>
         </header>
 
         <!-- Summary -->
         <div class="summary-grid">
             <div class="summary-card done">
-                <div class="number">6</div>
+                <div class="number">18</div>
                 <div class="label">Concluídas (novidade)</div>
             </div>
             <div class="summary-card progress">
-                <div class="number">7</div>
+                <div class="number">6</div>
                 <div class="label">Em Andamento</div>
             </div>
             <div class="summary-card backlog">
-                <div class="number">8</div>
+                <div class="number">4</div>
                 <div class="label">Backlog / Aguardando</div>
             </div>
             <div class="summary-card initiatives">
@@ -244,22 +244,22 @@
             <p class="section-desc">Projetos de maior complexidade técnica e impacto no produto que o time está liderando ou contribuindo diretamente.</p>
 
             <div class="initiative-card">
-                <h3>🧠 Inteligência Acadêmica — Relatório Diagnóstico do Aluno</h3>
-                <p><strong>O que é:</strong> Novo fluxo da IA para gerar relatório diagnóstico individual do aluno baseado em uma avaliação específica.</p>
-                <p><strong>Papel Dados:</strong> Análise concluída e todas as 5 queries implementadas e entregues. Iniciativa finalizada no lado de Dados.</p>
-                <p><strong>Status:</strong> REL-3814 (análise) ✅, REL-3839 a REL-3843 (5 queries) TODAS concluídas ✅, REL-3794 (job CADUNI) concluída ✅. Iniciativa entregue no lado de Dados.</p>
+                <h3>📊 Painel Escola ENEM — Comparação com Dados ENEM</h3>
+                <p><strong>O que é:</strong> Nova funcionalidade no Painel Escola para comparar desempenho dos alunos com médias históricas do ENEM por estado/região.</p>
+                <p><strong>Papel Dados:</strong> 14 queries novas para simulação TRI e comparação ENEM entregues neste período.</p>
+                <p><strong>Status:</strong> REL-3797 (query média escola) ✅, REL-3887 a REL-3901 (14 queries) TODAS concluídas ✅. Iniciativa entregue no lado de Dados.</p>
                 <div class="context">
-                    <strong>Complexidade técnica:</strong> Alta. A análise resultou em 5 queries distintas que cruzam dados de desempenho por questão/habilidade/tema para um aluno vs turma, usando dados Meritt + disciplinas + competências do ClickHouse. Execução em paralelo.
+                    <strong>Complexidade técnica:</strong> Alta. Queries para 3 níveis de painel (Aluno, Turma, Escola) com comparações de médias TRI, listagem de simulados e filtros por ano/região/estado.
                 </div>
             </div>
 
             <div class="initiative-card">
-                <h3>🏫 Painel Sala de Aula — disciplineId CADUNI (IN194)</h3>
-                <p><strong>O que é:</strong> O Painel Sala de Aula precisa unificar dados de EO, Maestro e Avaliações usando um ID de disciplina central (Caduni). Cada produto usa IDs diferentes com relações N:N.</p>
-                <p><strong>Papel Dados:</strong> REL-3794 concluída — job student_diagnostics_by_discipline merged. REL-3819 (query) já concluída anteriormente.</p>
-                <p><strong>Status:</strong> REL-3794 concluída ✅ (job student_diagnostics_by_discipline merged). REL-3819 (query) já concluída anteriormente.</p>
+                <h3>🧠 Inteligência Acadêmica — Query Listagem de Escolas</h3>
+                <p><strong>O que é:</strong> Query para listar escolas do usuário no módulo de Inteligência Acadêmica.</p>
+                <p><strong>Papel Dados:</strong> REL-3883 concluída — query para Academic Intelligence.</p>
+                <p><strong>Status:</strong> REL-3883 ✅ concluída. Iniciativa entregue.</p>
                 <div class="context">
-                    <strong>Complexidade técnica:</strong> Muito Alta. Problema de modelagem com 3 tabelas de de-para em cadeia, relação N:N entre 800k+ registros, e trade-off entre perder dados ou gerar duplicação. Job pronto, faltam ajustes finais para MR + dependências externas para deploy.
+                    <strong>Complexidade técnica:</strong> Média. Filtro de escolas por permissões do usuário logado para acesso ao módulo de IA.
                 </div>
             </div>
 
@@ -272,13 +272,11 @@
                     <strong>Complexidade técnica:</strong> Média. Query de consolidação de métricas de múltiplos produtos (EO, Maestro, Avaliações) para um único aluno.
                 </div>
             </div>
-
-
         </section>
 
         <!-- Seção 4: Concluído NOVO -->
         <section>
-            <h2><span class="icon">🆕</span> Concluído desde último report (28/ago)</h2>
+            <h2><span class="icon">🆕</span> Concluído desde último report (01/set)</h2>
             <p class="section-desc">Issues que mudaram para Done desde o último envio. <span class="badge badge-new">NOVO</span></p>
 
             <table class="task-table">
@@ -294,52 +292,196 @@
                 </thead>
                 <tbody>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3794" target="_blank">REL-3794</a></td>
-                        <td>Novo job student_diagnostics_by_discipline com disciplineId CADUNI</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3797" target="_blank">REL-3797</a></td>
+                        <td>Query Comparar com "dados ENEM" — Média escola</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Sala de Aula</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3901" target="_blank">REL-3901</a></td>
+                        <td>Query simulation-list-simulations-compare-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3900" target="_blank">REL-3900</a></td>
+                        <td>Query simulation-tri-average-compare-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3899" target="_blank">REL-3899</a></td>
+                        <td>Query simulation-list-simulations-compare-group-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3898" target="_blank">REL-3898</a></td>
+                        <td>Query simulation-tri-average-compare-group-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3897" target="_blank">REL-3897</a></td>
+                        <td>Query simulation-list-simulations-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3896" target="_blank">REL-3896</a></td>
+                        <td>Query simulation-tri-average-query (Escola)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Escola</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3895" target="_blank">REL-3895</a></td>
+                        <td>Query simulation-list-simulations-compare-query (Turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Turma</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3894" target="_blank">REL-3894</a></td>
+                        <td>Query simulation-tri-average-compare-query (Turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Turma</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3893" target="_blank">REL-3893</a></td>
+                        <td>Query simulation-list-simulations-query (Turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Turma</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3892" target="_blank">REL-3892</a></td>
+                        <td>Query simulation-tri-average-query (Turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Turma</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3891" target="_blank">REL-3891</a></td>
+                        <td>Query simulation-list-simulations-query (Aluno)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3890" target="_blank">REL-3890</a></td>
+                        <td>Query simulation-tri-average-query (Aluno)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3889" target="_blank">REL-3889</a></td>
+                        <td>Query dropdown ENEM Estados</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">ENEM</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3888" target="_blank">REL-3888</a></td>
+                        <td>Query dropdown ENEM Regiões</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">ENEM</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3887" target="_blank">REL-3887</a></td>
+                        <td>Query dropdown ENEM Years</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">ENEM</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>08/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3883" target="_blank">REL-3883</a></td>
+                        <td>Query listagem de escolas do usuário no Academic Intelligence</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>04/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3761" target="_blank">REL-3761</a></td>
+                        <td>Problema do dado de Listas enviadas (acompanhamento por professores)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Maestro Bug</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>03/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3766" target="_blank">REL-3766</a></td>
+                        <td>Dados de participação da aluna incorretos</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>02/set</td>
+                    </tr>
+                    <tr class="new-highlight">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3557" target="_blank">REL-3557</a></td>
+                        <td>Deduplicação não-determinística no load_cdc_parquet_as_df</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">CDC Infra</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
+                        <td>02/set</td>
                     </tr>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3843" target="_blank">REL-3843</a></td>
-                        <td>Disponibilização da query - Seção Temas por Desempenho (aluno vs turma)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3740" target="_blank">REL-3740</a></td>
+                        <td>Solicitação de resultado RPP 2024 de estudante</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">EO</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>04/set</td>
                     </tr>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3842" target="_blank">REL-3842</a></td>
-                        <td>Disponibilização da query - Seção Habilidades (aluno vs turma)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3786" target="_blank">REL-3786</a></td>
+                        <td>Replicar ajuste em nome das listas no EO</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">EO</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>04/set</td>
                     </tr>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3841" target="_blank">REL-3841</a></td>
-                        <td>Disponibilização da query - Seção Questões por Aluno</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3722" target="_blank">REL-3722</a></td>
+                        <td>Consulta acompanhamento por Rede para Rede Santa Catarina</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">Consulta</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td>04/set</td>
                     </tr>
                     <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3840" target="_blank">REL-3840</a></td>
-                        <td>Disponibilização da query - Seção Desempenho Geral (aluno vs turma)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3713" target="_blank">REL-3713</a></td>
+                        <td>Problema na inclusão da disciplina na pipe para alguns tipos de tarefa</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">EO Bug</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
-                    </tr>
-                    <tr class="new-highlight">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3839" target="_blank">REL-3839</a></td>
-                        <td>Disponibilização da query - Seção Visão Geral</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                        <td>31/ago</td>
+                        <td>04/set</td>
                     </tr>
                 </tbody>
             </table>
@@ -362,20 +504,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3797" target="_blank">REL-3797</a></td>
-                        <td>Query Comparar com "dados ENEM" — Média escola</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3731" target="_blank">REL-3731</a></td>
+                        <td>Problema na tabela de Acompanhamento por listas (Back/QA)</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Painel Escola</span></td>
-                        <td><span class="badge badge-progress">In Progress</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3766" target="_blank">REL-3766</a></td>
-                        <td>Dados de participação da aluna incorretos</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Painel Aluno</span></td>
-                        <td><span class="badge badge-progress">Code Review</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                        <td><span class="tag">EO Bug</span></td>
+                        <td><span class="badge badge-progress">Ready to Deploy</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3720" target="_blank">REL-3720</a></td>
@@ -394,6 +528,14 @@
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3727" target="_blank">REL-3727</a></td>
+                        <td>Problema em aparecer questão de vídeo no Painel EO</td>
+                        <td><span class="badge badge-gf">GF</span></td>
+                        <td><span class="tag">EO Bug</span></td>
+                        <td><span class="badge badge-progress">Ready to Deploy</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
+                    </tr>
+                    <tr>
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3723" target="_blank">REL-3723</a></td>
                         <td>Inclusão do tipo de tarefa "trilhas do RAPP" no EO</td>
                         <td><span class="badge badge-gf">GF</span></td>
@@ -402,20 +544,12 @@
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3727" target="_blank">REL-3727</a></td>
-                        <td>Problema em aparecer questão de vídeo no Painel EO</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3686" target="_blank">REL-3686</a></td>
+                        <td>Sem data de entrega da avaliação (Painel Aluno)</td>
                         <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">EO Bug</span></td>
-                        <td><span class="badge badge-progress">QA</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3731" target="_blank">REL-3731</a></td>
-                        <td>Problema na tabela de Acompanhamento por listas (Back/QA)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">EO Bug</span></td>
-                        <td><span class="badge badge-progress">Ready to Merge</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
+                        <td><span class="tag">Painel Aluno</span></td>
+                        <td><span class="badge badge-progress">In Progress</span></td>
+                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                 </tbody>
             </table>
@@ -462,42 +596,10 @@
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
                     <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3761" target="_blank">REL-3761</a></td>
-                        <td>Problema do dado de Listas enviadas (acompanhamento por professores)</td>
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3858" target="_blank">REL-3858</a></td>
+                        <td>Ajuste no empty state (Avaliações)</td>
                         <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Maestro Bug</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3686" target="_blank">REL-3686</a></td>
-                        <td>Sem data de entrega da avaliação (Painel Aluno)</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Painel Aluno</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3557" target="_blank">REL-3557</a></td>
-                        <td>Deduplicação não-determinística no load_cdc_parquet_as_df</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">CDC Infra</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3107" target="_blank">REL-3107</a></td>
-                        <td>Análise de estrutura de queries nos filtros de comparação de alunos</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Painel Aluno</span></td>
-                        <td><span class="badge badge-backlog">Médio</span></td>
-                        <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
-                    </tr>
-                    <tr>
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-2457" target="_blank">REL-2457</a></td>
-                        <td>Padronizar tratamento de campos booleanos nulos no backend</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">UDA</span></td>
+                        <td><span class="tag">Avaliações</span></td>
                         <td><span class="badge badge-backlog">Médio</span></td>
                         <td><div class="difficulty"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></td>
                     </tr>
@@ -508,7 +610,7 @@
         <!-- Seção 7: Já Reportado -->
         <section>
             <h2><span class="icon">✅</span> Já reportado como concluído (report anterior)</h2>
-            <p class="section-desc">Issues concluídas entre 18/ago e 28/ago que já foram informadas no report anterior.</p>
+            <p class="section-desc">Issues concluídas entre 26/ago e 01/set que já foram informadas no report anterior.</p>
 
             <table class="task-table">
                 <thead>
@@ -521,6 +623,48 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3794" target="_blank">REL-3794</a></td>
+                        <td>Novo job student_diagnostics_by_discipline com disciplineId CADUNI</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">Sala de Aula</span></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3843" target="_blank">REL-3843</a></td>
+                        <td>Query Seção Temas por Desempenho (aluno vs turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3842" target="_blank">REL-3842</a></td>
+                        <td>Query Seção Habilidades (aluno vs turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3841" target="_blank">REL-3841</a></td>
+                        <td>Query Seção Questões por Aluno</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3840" target="_blank">REL-3840</a></td>
+                        <td>Query Seção Desempenho Geral (aluno vs turma)</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>31/ago</td>
+                    </tr>
+                    <tr class="reported-muted">
+                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3839" target="_blank">REL-3839</a></td>
+                        <td>Query Seção Visão Geral</td>
+                        <td><span class="badge badge-rf">RF</span></td>
+                        <td><span class="tag">IA</span></td>
+                        <td>31/ago</td>
+                    </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3791" target="_blank">REL-3791</a></td>
                         <td>Atualizar dependências de notificacoes-relatorios</td>
@@ -544,101 +688,17 @@
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3814" target="_blank">REL-3814</a></td>
-                        <td>Análise Disponibilização das queries do relatório diagnóstico do aluno</td>
+                        <td>Análise queries do relatório diagnóstico do aluno</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">IA</span></td>
                         <td>28/ago</td>
                     </tr>
                     <tr class="reported-muted">
                         <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3838" target="_blank">REL-3838</a></td>
-                        <td>Dados null no endpoint /assessment/students/performance-and-participation (UDA)</td>
+                        <td>Dados null no endpoint /assessment/students/performance-and-participation</td>
                         <td><span class="badge badge-rf">RF</span></td>
                         <td><span class="tag">UDA</span></td>
                         <td>27/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3789" target="_blank">REL-3789</a></td>
-                        <td>Validar e ajustar a origem dos dados da média de acertos da escola (ENEM)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">ENEM</span></td>
-                        <td>24/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3819" target="_blank">REL-3819</a></td>
-                        <td>Nova query para Sala de Aula com disciplineId do CADUNI</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">Sala de Aula</span></td>
-                        <td>24/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3724" target="_blank">REL-3724</a></td>
-                        <td>Tabela Acompanhamento de listas por alunos sem atualização</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">EO Bug</span></td>
-                        <td>24/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3786" target="_blank">REL-3786</a></td>
-                        <td>Replicar o ajuste em nome das listas no EO</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">EO</span></td>
-                        <td>21/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3549" target="_blank">REL-3549</a></td>
-                        <td>Retornar parâmetro indicando escola do usuário logado (ENEM)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">ENEM</span></td>
-                        <td>21/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3722" target="_blank">REL-3722</a></td>
-                        <td>Consulta acompanhamento por Rede para Rede Santa Catarina</td>
-                        <td><span class="badge badge-gf">GF</span></td>
-                        <td><span class="tag">Rede SC</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3793" target="_blank">REL-3793</a></td>
-                        <td>Query ClickHouse para students — listar Disciplinas (Query agnostica)</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3738" target="_blank">REL-3738</a></td>
-                        <td>Query ClickHouse activities — listar atividades Maestro por instrumentTypeId + disciplineId</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3732" target="_blank">REL-3732</a></td>
-                        <td>Query ClickHouse para instrument-types — buscar tipos de instrumento</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3733" target="_blank">REL-3733</a></td>
-                        <td>Query ClickHouse para students — listar alunos da turma</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3734" target="_blank">REL-3734</a></td>
-                        <td>Query ClickHouse para lists — listar listas/atividades EO por instrumentTypeId + disciplineId</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
-                    </tr>
-                    <tr class="reported-muted">
-                        <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3735" target="_blank">REL-3735</a></td>
-                        <td>Adicionar filtro instrumentTypeId no endpoint assessments existente</td>
-                        <td><span class="badge badge-rf">RF</span></td>
-                        <td><span class="tag">IA</span></td>
-                        <td>19/ago</td>
                     </tr>
                 </tbody>
             </table>
@@ -648,190 +708,115 @@
         <section>
             <h2><span class="icon">📦</span> Histórico</h2>
             <details>
-                <summary>Concluídos antes de 18/ago/2026 — clique para expandir (29 issues)</summary>
+                <summary>Ver issues concluídas antes de 26/ago (clique para expandir)</summary>
                 <table class="task-table" style="margin-top: 1rem;">
                     <thead>
                         <tr>
                             <th>Jira</th>
                             <th>Resumo</th>
                             <th>Resp.</th>
+                            <th>Iniciativa</th>
                             <th>Concluído</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3789" target="_blank">REL-3789</a></td>
+                            <td>Validar e ajustar a origem dos dados da média de acertos da escola</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">ENEM</span></td>
+                            <td>24/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3819" target="_blank">REL-3819</a></td>
+                            <td>Nova query para Sala de Aula com disciplineId do CADUNI</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">Sala de Aula</span></td>
+                            <td>24/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3724" target="_blank">REL-3724</a></td>
+                            <td>Tabela Acompanhamento de listas por alunos sem atualização</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">EO Bug</span></td>
+                            <td>24/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3549" target="_blank">REL-3549</a></td>
+                            <td>Retornar na listagem de todas as escolas parâmetro indicando escola do usuário logado</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">ENEM</span></td>
+                            <td>21/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3793" target="_blank">REL-3793</a></td>
+                            <td>Query ClickHouse para students — listar Disciplinas (Query agnostica)</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3738" target="_blank">REL-3738</a></td>
+                            <td>Query ClickHouse para activities — listar atividades do professor Maestro</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3732" target="_blank">REL-3732</a></td>
+                            <td>Query ClickHouse para instrument-types</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3733" target="_blank">REL-3733</a></td>
+                            <td>Query ClickHouse para students — listar alunos da turma</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3734" target="_blank">REL-3734</a></td>
+                            <td>Query ClickHouse para lists — listar listas/atividades EO</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
+                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3735" target="_blank">REL-3735</a></td>
+                            <td>Adicionar filtro instrumentTypeId no endpoint assessments</td>
+                            <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
+                            <td>19/ago</td>
+                        </tr>
+                        <tr class="reported-muted">
                             <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3629" target="_blank">REL-3629</a></td>
                             <td>Disponibilizar queries para novos combos da IA V2</td>
                             <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">IA</span></td>
                             <td>17/ago</td>
                         </tr>
-                        <tr>
+                        <tr class="reported-muted">
                             <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3765" target="_blank">REL-3765</a></td>
                             <td>Ajuste status questão anulada para "Realizada"</td>
                             <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">EO</span></td>
                             <td>13/ago</td>
                         </tr>
-                        <tr>
+                        <tr class="reported-muted">
                             <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3785" target="_blank">REL-3785</a></td>
                             <td>Steering</td>
                             <td><span class="badge badge-rf">RF</span></td>
+                            <td><span class="tag">Infra</span></td>
                             <td>13/ago</td>
                         </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3788" target="_blank">REL-3788</a></td>
-                            <td>Ajustes no título e números das questões ENEM</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>12/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3769" target="_blank">REL-3769</a></td>
-                            <td>Disponibilizar query e exportação da página de Detalhes de Simulado/Avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>11/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3683" target="_blank">REL-3683</a></td>
-                            <td>Consulta acompanhamento por alunos para Rede Santa Catarina</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>10/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3740" target="_blank">REL-3740</a></td>
-                            <td>Solicitação de resultado RPP 2024 de estudante</td>
-                            <td><span class="badge badge-gf">GF</span></td>
-                            <td>10/ago</td>
-                        </tr>
-                        <tr>
+                        <tr class="reported-muted">
                             <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3684" target="_blank">REL-3684</a></td>
                             <td>Consulta acompanhamento por escola para Rede Santa Catarina</td>
                             <td><span class="badge badge-gf">GF</span></td>
+                            <td><span class="tag">Consulta</span></td>
                             <td>10/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3756" target="_blank">REL-3756</a></td>
-                            <td>Ajuste no comportamento de Questão anulada</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3752" target="_blank">REL-3752</a></td>
-                            <td>Sala de Aula análise de-para disciplina EO - Caduni</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3775" target="_blank">REL-3775</a></td>
-                            <td>Disponibilizar query de Desempenho por questão</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3774" target="_blank">REL-3774</a></td>
-                            <td>Disponibilizar query de Desempenho por Disciplina</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3773" target="_blank">REL-3773</a></td>
-                            <td>Disponibilizar query Nota de Simulados alunos da turma</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3772" target="_blank">REL-3772</a></td>
-                            <td>Disponibilizar query Desempenho de alunos da turma nesta avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3771" target="_blank">REL-3771</a></td>
-                            <td>Disponibilizar query Participação de alunos da turma nesta avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3770" target="_blank">REL-3770</a></td>
-                            <td>Disponibilizar query nome de avaliação e turma</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3223" target="_blank">REL-3223</a></td>
-                            <td>Disponibilizar query da página de Detalhes de Simulado/Avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3713" target="_blank">REL-3713</a></td>
-                            <td>Problema na inclusão da disciplina na pipe para alguns tipos de tarefa</td>
-                            <td><span class="badge badge-gf">GF</span></td>
-                            <td>06/ago</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3665" target="_blank">REL-3665</a></td>
-                            <td>Query TODAS AS AVALIAÇÕES página de Detalhes da lista do Avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>24/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3696" target="_blank">REL-3696</a></td>
-                            <td>Ajuste dado de Escolas que não usaram (Maestro)</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>22/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3682" target="_blank">REL-3682</a></td>
-                            <td>Consulta acompanhamento por professores para Rede Santa Catarina</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>20/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3741" target="_blank">REL-3741</a></td>
-                            <td>BUG list-assessment-query</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3666" target="_blank">REL-3666</a></td>
-                            <td>Filtro tipo de avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3664" target="_blank">REL-3664</a></td>
-                            <td>Query DESEMPENHO POR TIPO DE AVALIAÇÃO</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3663" target="_blank">REL-3663</a></td>
-                            <td>Query DESEMPENHO página Detalhes da lista do Avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3662" target="_blank">REL-3662</a></td>
-                            <td>Query PARTICIPAÇÃO página Detalhes da lista do Avaliação</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3642" target="_blank">REL-3642</a></td>
-                            <td>Queries para a página de Avaliações em Detalhes da disciplina</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>16/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3693" target="_blank">REL-3693</a></td>
-                            <td>Questão anulada não ajustada no painel EO</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>09/jul</td>
-                        </tr>
-                        <tr>
-                            <td><a class="jira-link" href="https://somoseducacao.atlassian.net/browse/REL-3544" target="_blank">REL-3544</a></td>
-                            <td>Problema no dado de questões realizadas / disponibilizadas</td>
-                            <td><span class="badge badge-rf">RF</span></td>
-                            <td>09/jul</td>
                         </tr>
                     </tbody>
                 </table>
@@ -839,7 +824,7 @@
         </section>
 
         <footer>
-            <p>Gerado automaticamente em 01/09/2026 · Squad Relatórios · Plurall Data Engineering</p>
+            <p>Gerado automaticamente em 09/09/2026 · Squad Relatórios (Dados) · Plurall</p>
         </footer>
     </div>
 </body>
